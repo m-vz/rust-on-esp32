@@ -4,11 +4,10 @@ This repository contains the final code for the Rust on ESP32 workshop and the [
 
 ## Installing
 
-Make sure you have `rustup` installed on your system.
-
-1. Make sure you have the latest Rust version installed with `rustup update`. If you don't have any toolchain installed, install `stable`
+0. Make sure you have [`rustup`](https://www.rust-lang.org/learn/get-started) installed on your system.
+1. Make sure you have the latest Rust version installed with `rustup update`. If you don't have any toolchain installed, install `stable`.
 2. Install the dependencies used for the workshop: `cargo install cargo-generate espup espflash`
-3. Install the Xtensa Rust toolchain with `espup install -f export-esp.sh`. (The `-f export-esp.sh` is optional; the file will be saved in `$HOME` if it isn't provided)
+3. Install the Xtensa Rust toolchain with `espup install -f export-esp.sh`. (The `-f export-esp.sh` is optional; the file will be saved in `$HOME` if it isn't provided.)
 4. Make sure the toolchain was installed correctly: `ls -a ~/.rustup/toolchains`
 5. Source the generated export file with `source export-esp.sh`. This needs to be done in each new shell session (or the exports can be added to the shell profile).
 
@@ -25,6 +24,7 @@ The rest of this process will be done together, so wait here unless you want to 
     - `false`
     - `yes`
 7. Enter the project directory: `cd rust-on-esp32`
+8. Build the project with `cargo build --release` or upload it with `cargo run --release`.
 
 ## Troubleshooting
 
