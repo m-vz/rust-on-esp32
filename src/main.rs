@@ -3,8 +3,14 @@
 
 use esp_backtrace as _;
 use esp_hal::{
-    clock::ClockControl, delay::Delay, peripherals::Peripherals, prelude::*, system::SystemControl,
+    clock::ClockControl,
+    delay::Delay,
+    gpio::{Io, Level, Output},
+    peripherals::Peripherals,
+    prelude::*,
+    system::SystemControl,
 };
+use esp_wifi::current_millis;
 
 #[entry]
 fn main() -> ! {
@@ -13,6 +19,9 @@ fn main() -> ! {
 
     let clocks = ClockControl::max(system.clock_control).freeze();
     let delay = Delay::new(&clocks);
+
+    let io = Io::new(peripherals.GPIO, peripherals.IO_MUX);
+    let mut led = Output::new(io.pins.gpio2, Level::Low);
 
     esp_println::logger::init_logger_from_env();
 
@@ -26,8 +35,15 @@ fn main() -> ! {
     )
     .unwrap();
 
+    let interval = 2000;
+    let mut time_slot = current_millis();
     loop {
-        log::info!("Hello world!");
-        delay.delay(500.millis());
+        if current_millis() >= time_slot {
+            time_slot = current_millis() + interval;
+
+            led.set_high();
+            delay.delay(10.millis());
+            led.set_low();
+        }
     }
 }
