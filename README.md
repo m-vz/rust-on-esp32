@@ -2,6 +2,8 @@
 
 This repository contains the final code for the Rust on ESP32 workshop and the [presentation](presentation).
 
+To view the presenation, use [presenterm](https://github.com/mfontanini/presenterm).
+
 ## Installing
 
 0. Make sure you have [`rustup`](https://www.rust-lang.org/learn/get-started) installed on your system.
