@@ -41,7 +41,7 @@ Workshop Preparation
 ---
 
 # For those participating
-We brought ~20 ESP32 MCU's.
+We brought ~30 ESP32 MCU's.
 
 [](https://github.com/m-vz/rust-on-esp32) -> follow steps up to 5
 
